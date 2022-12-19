@@ -3,7 +3,7 @@
  * @Author: zhuangshunan
  * @Date: 2022-12-19 17:16:18
  * @LastEditors: zhuangshunan
- * @LastEditTime: 2022-12-19 17:47:48
+ * @LastEditTime: 2022-12-19 17:52:20
  */
 // ============= Test Cases =============
 import type { Equal, Expect } from './test-utils'
@@ -24,6 +24,6 @@ type error = TupleToObject<[[1, 2], {}]>
 
 // ============= Your Code Here =============
 // type TupleToObject<T extends readonly any[]> = any
-type TupleToObject<T extends readonly any[]> = {
+type TupleToObject<T extends readonly (string | number | symbol)[]> = {
   [K in T[number]]: K;
 }
